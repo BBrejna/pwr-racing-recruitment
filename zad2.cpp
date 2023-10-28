@@ -2,12 +2,15 @@
 
 using namespace std;
 
+
+// Struktura dla punktu w formacie (x,y) i obliczeń
 struct Point {
     double x, y;
 
     Point() {}
     Point(double X, double Y) : x(X), y(Y) {}
 
+    // Iloczyn wektorowy
     double operator*(const Point& o) const {
         return o.x*y-x*o.y;
     }
@@ -20,6 +23,7 @@ struct Point {
     }
 };
 
+// Struktura dla płaszczyzny
 struct Geo {
     vector<Point> points;
 
@@ -33,6 +37,7 @@ struct Geo {
         add_point({x,y});
     }
 
+    // Otoczka wypukła dla punktów na płaszczyźnie
     vector<Point> convex_hull() {
         vector<Point> result;
 
@@ -40,8 +45,10 @@ struct Geo {
             result = points;
         }
         if (points.size() > 1) {
+            // Sortowanie po niemalejącym x, potem niemalejącym y
             sort(points.begin(), points.end());
 
+            // dolna część otoczki dla it=2, górna część otoczki idąc po punktach od tyłu dla it=1
             for (int it = 2; it > 0; it--) {
                 result.push_back(points[0]);
                 result.push_back(points[1]);
@@ -72,6 +79,7 @@ bool read_file() {
         string file_name;
         cin >> file_name;
 
+        // Przekierowanie cin na plik
         ifstream cin(file_name);
         int n;
         cin >> n;
@@ -99,8 +107,6 @@ void write_output(const vector<Point>& result) {
 }
 
 int main () {
-    cin.tie(0), cout.tie(0), ios::sync_with_stdio(0);
-
     if (read_file()) {
         vector<Point> convex_hull = geo.convex_hull();
         write_output(convex_hull);
