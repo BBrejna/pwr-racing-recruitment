@@ -107,6 +107,8 @@ void write_output(const vector<Point>& result) {
 }
 
 int main () {
+    cin.tie(0), cout.tie(0), ios::sync_with_stdio(0);
+    
     if (read_file()) {
         vector<Point> convex_hull = geo.convex_hull();
         write_output(convex_hull);
