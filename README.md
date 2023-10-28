@@ -18,6 +18,7 @@ Zadanie 2 - otoczka wypukła na płaszczyźnie
 3. Algorytm liczenia otoczki wypukłej
 
 ## Sposób użycia
-Kompilowane na g++ 9.4.0
-Nazwa pliku z punktami na standardowym wejściu
-Wynik na standardowym wyjściu
+
+1. Kompilowane na g++ 9.4.0
+2. Nazwa pliku tekstowego z punktami na standardowym wejściu
+3. Wynik na standardowym wyjściu
